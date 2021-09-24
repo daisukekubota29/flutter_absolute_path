@@ -67,6 +67,8 @@ object FileDirectory {
             }// MediaProvider
             // DownloadsProvider
         } else if ("content".equals(uri.scheme, ignoreCase = true)) {
+            if (isGooglePhotosUri(uri))
+                return uri.getLastPathSegment();
             return getDataColumn(context, uri, null, null)
         }
 
@@ -135,5 +137,13 @@ object FileDirectory {
      */
     fun isMediaDocument(uri: Uri): Boolean {
         return "com.android.providers.media.documents" == uri.authority
+    }
+
+    /**
+     * @param uri The Uri to check.
+     * @return Whether the Uri authority is Google Photos.
+     */
+    fun isGooglePhotosUri(uri: Uri): Boolean {
+        return "com.google.android.apps.photos.content" == uri.authority
     }
 }
