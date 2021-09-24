@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter_absolute_path/flutter_absolute_path.dart';
-import 'package:multi_image_picker/multi_image_picker.dart';
+import 'package:multi_image_picker2/multi_image_picker2.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<File> _files;
+  List<File>? _files;
 
   @override
   void initState() {
@@ -31,8 +31,8 @@ class _MyAppState extends State<MyApp> {
     List<File> files = [];
     for (Asset asset in assets) {
       final filePath =
-          await FlutterAbsolutePath.getAbsolutePath(asset.identifier);
-      files.add(File(filePath));
+          await FlutterAbsolutePath.getAbsolutePath(asset.identifier!);
+      files.add(File(filePath!));
     }
 
     // If the widget was removed from the tree while the asynchronous platform
