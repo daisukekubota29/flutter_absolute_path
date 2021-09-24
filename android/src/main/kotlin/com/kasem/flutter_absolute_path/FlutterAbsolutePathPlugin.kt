@@ -13,9 +13,10 @@ import io.flutter.plugin.common.PluginRegistry.Registrar
 import android.content.Context
 import android.app.Activity
 import android.net.Uri
+
 import io.flutter.plugin.common.BinaryMessenger
 
-class FlutterAbsolutePathPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
+class FlutterAbsolutePathPlugin : FlutterPlugin, ActivityAware, MethodCallHandler{
     private lateinit var channel : MethodChannel
 
     private lateinit var context: Context
